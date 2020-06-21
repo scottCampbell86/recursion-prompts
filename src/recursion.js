@@ -70,13 +70,36 @@ const isEven = function(n, odd = false, even = true) {
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
+
+const sumBelow = function(n, i = 1, sum = 0) {
+  
+  //Base Case
+  if (i === n) return sum
+  
+  	//update
+  sum += i;
+  i += 1;
+  
+  //Recursive Case
+  	//return sumBelow(...)
+  return sumBelow(n, i, sum)
+  
 };
 
-// 6. Get the integers within a range (x, y).
-// range(2,9); // [3,4,5,6,7,8]
-var range = function(x, y) {
-};
+const range = (x, y, i = 0, arr = []) => {
+  
+    const length = (y - 1) - x;
+    
+    if (arr.length === length) return arr;
+    
+    if (arr.length === 0) arr.push(x + 1);
+    
+  	else arr.push(arr[i - 1] + 1)
+    
+    return range(x, y, i += 1, arr)
+  };
+  
+  // //console.log(range(2,9)); // [3,4,5,6,7,8]
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.

@@ -5,14 +5,46 @@
 // 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
-// factorial(5); // 120
-var factorial = function(n) {
+
+const factorial = n => {
+
+    //Base Case
+    if (call === n) return fact;
+  
+  
+  	//update
+  	fact = fact * call;
+		call += 1;
+  
+  //Recursive Case
+  return factorial(n, call, fact)
+
 };
 
+// console.log(factorial(5)); // 120
+
+---
+
 // 2. Compute the sum of an array of integers.
-// sum([1,2,3,4,5,6]); // 21
-var sum = function(array) {
+const sum = (array, i = 0, total = 0) => {
+  
+  const num = array[i]
+  //Base Case
+	if (!array[i]) return total
+  
+  	//update
+  	total += num;
+  	i += 1;
+  
+  //Recursive Case 
+  	//return sum(...)
+  return sum(array, i, total)
+  
 };
+
+//console.log(sum([1,2,3,4,5,6])); // 21
+
+---
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15

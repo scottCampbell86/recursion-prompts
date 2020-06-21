@@ -21,9 +21,6 @@ const factorial = n => {
 
 };
 
-// console.log(factorial(5)); // 120
-
----
 
 // 2. Compute the sum of an array of integers.
 const sum = (array, i = 0, total = 0) => {
@@ -42,18 +39,33 @@ const sum = (array, i = 0, total = 0) => {
   
 };
 
-//console.log(sum([1,2,3,4,5,6])); // 21
 
----
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array) {
+const arraySum = function(array, i = 0, total = 0) {
+  
+  const flat = array.reduce((acc, element) => acc.concat(element), []);
+  
+  if (flat[i]) total += flat[i];
+  else return total
+  
+  return arraySum(flat, i += 1, total )
+  
 };
 
+
 // 4. Check if a number is even.
-var isEven = function(n) {
+const isEven = function(n, odd = false, even = true) {
+  
+  if (n === 2) return even;
+  if (n % 2 !== 0) return odd;
+  if (n % 2 === 0) return isEven(n - 2);
+  
 };
+
+// console.log(isEven(12))
+// console.log(isEven(13))
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
